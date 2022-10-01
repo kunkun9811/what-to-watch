@@ -13,6 +13,7 @@ type GetAllAnimeResponse struct {
 }
 
 func (g GetAllAnimeHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	ctx := r.Context()
 	w.Header().Set("Content-Type", "application/json")
 
 	response := GetAllAnimeResponse{
