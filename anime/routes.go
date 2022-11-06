@@ -8,6 +8,7 @@ import (
 
 func createRouter() http.Handler {
 	getAllAnime := GetAllAnimeHandler{}
+	searchAnimeByName := SearchAnimeByName{}
 
 	r := mux.NewRouter()
 
@@ -17,5 +18,6 @@ func createRouter() http.Handler {
 	})
 	animeRouter := r.PathPrefix("/api/anime").Subrouter()
 	animeRouter.Handle("", getAllAnime).Methods("GET")
+	animeRouter.Handle("", searchAnimeByName).Methods("POST")
 	return r
 }
