@@ -19,7 +19,7 @@ func main() {
 
 	go func() {
 		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			fmt.Println("Error: HTTP Server shutdown error")
+			fmt.Println("Error: HTTP Server shutdown error: " + err.Error())
 		}
 	}()
 
