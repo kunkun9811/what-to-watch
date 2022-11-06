@@ -1,12 +1,9 @@
 FROM golang:latest
 
 WORKDIR /app
-
-COPY go.mod .
-COPY go.sum .
-RUN go mod download
-
+RUN go mod init anime
 COPY *.go ./
+RUN go mod tidy
 
 RUN go build -o /anime
 
