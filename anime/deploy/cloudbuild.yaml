@@ -1,0 +1,15 @@
+# run this from the root directory of the ENTIRE project
+steps:
+  # build docker image
+  # $PROJECT_ID, $SHORT_SHA are all available default variables to use in GCP cloud build
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        docker build -t gcr.io/$PROJECT_ID/anime:$SHORT_SHA ./anime
+
+images:
+  - 'gcr.io/$PROJECT_ID/anime'
+
+tags: ['build_what-to-watch_anime']
