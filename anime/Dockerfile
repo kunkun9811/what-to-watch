@@ -1,4 +1,4 @@
-FROM golang:latest as builder
+FROM golang:1.18-alpine3.15 as builder
 
 WORKDIR /app
 RUN go mod init anime
